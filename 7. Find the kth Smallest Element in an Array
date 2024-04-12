@@ -1,0 +1,21 @@
+fn longest_common_prefix(strs: &[&str]) -> String {
+    if strs.is_empty() {
+        return "".to_string();
+    }
+    let mut prefix = strs[0].to_string();
+    for s in strs.iter() {
+        while !s.starts_with(&prefix) {
+            prefix.pop();
+            if prefix.is_empty() {
+                return "".to_string();
+            }
+        }
+    }
+    prefix
+}
+
+fn main() {
+    let words = ["flower", "flow", "flight"];
+    let lcp = longest_common_prefix(&words);
+    println!("Longest common prefix: {}", lcp);
+}
