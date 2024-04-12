@@ -1,0 +1,9 @@
+fn shortest_word(s: &str) -> &str {
+    s.split_whitespace().min_by_key(|word| word.len()).unwrap()
+}
+
+fn main() {
+    let sentence = "Find the shortest word in this sentence";
+    let short_word = shortest_word(sentence);
+    println!("The shortest word is '{}'", short_word);
+}
